@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { HangmanDrawing } from './components/HangmanDrawing';
 import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
+import ResetBtn from './components/ResetBtn';
 import wordAPI from './assets/service/wordAPI';
 import styles from './App.module.css';
 
@@ -87,9 +88,19 @@ function App() {
         resetGame();
       }
     };
+    const clickHandler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.innerText === 'RESET') {
+        e.preventDefault();
+        resetGame();
+      }
+    };
+
     document.addEventListener('keypress', handler);
+    document.addEventListener('click', clickHandler);
     return () => {
       document.removeEventListener('keypress', handler);
+      document.addEventListener('click', clickHandler);
     };
     // No dependencies, as this effect should only run once when the component mounts
   }, []);
@@ -98,9 +109,13 @@ function App() {
     <div className={styles.container}>
       <h1 className={styles.title}>Hangman game</h1>
       <div className={styles.wrap}>
-        <div className={styles.resultmessage}>
+        <div className={`${styles.resultmessage} ${styles.desktopVersion}`}>
           {isWinner && 'You won! - tab Enter to restart'}
           {isLoser && 'FAILED!!!! - tab Enter to restart'}
+        </div>
+        <div className={`${styles.resultmessage} ${styles.phoneVersion}`}>
+          {isWinner && 'You won! - click reset to restart'}
+          {isLoser && 'FAILED!!!! - click reset to restart'}
         </div>
 
         <HangmanDrawing numberOfGuesses={inCorrectLetters.length} />
@@ -118,6 +133,7 @@ function App() {
           inactiveLetters={inCorrectLetters}
           addGuessedLetter={addGuessedLetter}
         />
+        <ResetBtn />
       </div>
     </div>
   );

@@ -37,3 +37,15 @@
   background-color: hsl(200, 100% 65%);
   transition: 0.5s;
 }
+
+@media (max-width: 800px) {
+  .container {
+    width: 80%;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    gap: 0.5rem;
+  }
+  .btn {
+    padding: 5px;
+    font-size: 1.2rem;
+  }
+}

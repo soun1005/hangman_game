@@ -20,7 +20,7 @@ body {
 }
 
 .title {
-  padding: 2rem 0;
+  padding: 3rem 0;
   width: 100%;
   text-align: center;
   font-size: 3rem;
@@ -40,6 +40,10 @@ body {
   text-align: center;
 }
 
+.resultmessage.phoneVersion {
+  display: none;
+}
+
 .keyboard {
   align-self: stretch;
 }
@@ -53,5 +57,24 @@ body {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrap {
+    gap: 1.8rem;
+  }
+  .title {
+    padding: 3rem 0 0 0;
+    font-size: 2rem;
+  }
+  .resultmessage {
+    font-size: 1rem;
+  }
+  .resultmessage.phoneVersion {
+    display: block;
+  }
+  .resultmessage.desktopVersion {
+    display: none;
   }
 }

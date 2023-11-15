@@ -22,3 +22,9 @@
 .guessedLetters.visible {
   visibility: visible;
 }
+
+@media (max-width: 800px) {
+  .container {
+    font-size: 2rem;
+  }
+}

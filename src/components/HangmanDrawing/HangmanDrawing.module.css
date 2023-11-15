@@ -93,3 +93,52 @@
   rotate: -60deg;
   transform-origin: right bottom;
 }
+
+@media (max-width: 800px) {
+  .floor,
+  .connector {
+    height: 6px;
+  }
+
+  .hanger,
+  .hook,
+  .body {
+    width: 6px;
+  }
+
+  .hook {
+    right: 6px;
+  }
+
+  .head {
+    border: 6px solid black;
+    right: -22px;
+  }
+  .body {
+    height: 100px;
+    top: 110px;
+    right: 5px;
+  }
+
+  .leftArm,
+  .rightArm,
+  .leftLeg,
+  .rightLeg {
+    height: 6px;
+    width: 60px;
+  }
+
+  .rightArm {
+    right: -55px;
+  }
+
+  .rightLeg {
+    top: 204px;
+    right: -50px;
+  }
+
+  .leftLeg {
+    top: 204px;
+    right: 5px;
+  }
+}
